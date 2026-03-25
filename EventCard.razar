@@ -1,0 +1,10 @@
+<div class="card">
+    <h3>@EventName</h3>
+    <input @bind="EventName" placeholder="Edit Event Name" />
+    <p>Status: @(IsCompleted ? "Done" : "Pending")</p>
+</div>
+
+@code {
+    [Parameter] public string EventName { get; set; } = "New Event";
+    [Parameter] public bool IsCompleted { get; set; }
+}
