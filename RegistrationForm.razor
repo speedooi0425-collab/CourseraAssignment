@@ -1,0 +1,23 @@
+@using System.ComponentModel.DataAnnotations
+
+<EditForm Model="@userModel" OnValidSubmit="HandleSubmit">
+    <DataAnnotationsValidator />
+    
+    <InputText @bind-Value="userModel.Name" placeholder="Enter Name" />
+    <ValidationMessage For="@(() => userModel.Name)" />
+
+    <button type="submit">Register</button>
+</EditForm>
+
+@code {
+    private UserModel userModel = new();
+    
+    public class UserModel {
+        [Required(ErrorMessage = "Name is required")]
+        public string Name { get; set; }
+    }
+
+    private void HandleSubmit() {
+        // Logic for Attendance Tracker or State Management goes here
+    }
+}
